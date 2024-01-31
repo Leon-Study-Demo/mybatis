@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.tokyo.leon.mybatis.entity.Car">
+
+<!--*****************************   insert    ***************************-->
+    <insert id="insertCar">
+        insert into t_car(id, car_num, brand, guide_price, produce_time, car_type)
+        values(null, '1003', '丰田霸道', 30.0, '2000-10-11', '燃油车');
+    </insert>
+
+    <insert id="insertCarPlaceholder">
+        insert into t_car(id, car_num, brand, guide_price, produce_time, car_type)
+        values(null, #{k1}, #{k2}, #{k3}, #{k4}, #{k5});
+        <!-- 这里k1 k2 等是map集合的key， 如果key不存在，获取的是null -->
+    </insert>
+
+    <insert id="insertCarPlaceholder1">
+        insert into t_car(id, car_num, brand, guide_price, produce_time, car_type)
+        values(null, #{carNum}, #{brand}, #{guidePrice}, #{produceTime}, #{carType});
+        <!-- 这里k1 k2 等是map集合的key， 如果key不存在，获取的是null -->
+    </insert>
+
+
+    <insert id="insertCarByEntity">
+        insert into t_car(id, car_num, brand, guide_price, produce_time, car_type)
+        values(null, #{carNum}, #{brand}, #{guidePrice}, #{produceTime}, #{carType});
+        <!-- 对象的属性名 -->
+        <!-- 严格来说，#{carNum} 并不是对象的属性，而是属性的get方法，即getCarNum() 变形 carNum -->
+        <!-- 只是标准的写法，get方法变形后的和属性的名一样 -->
+    </insert>
+
+
+    <!--*****************************   insert    ***************************-->
+
+    <delete id="deleteById">
+        delete from t_car where id = #{id}
+    </delete>
+
+    <!--*****************************   update    ***************************-->
+
+    <update id="updateById">
+        update t_car set
+            car_num = #{carNum},
+            brand = #{brand},
+            guide_price = #{guidePrice},
+            produce_time = #{produceTime},
+            car_type = #{carType}
+        where id = #{id}
+    </update>
+
+    <!--*****************************   select    ***************************-->
+
+    <select id="selectById" resultType="jp.tokyo.leon.mybatis.crud.entity.Car">
+        select
+            id,
+            car_num as carNum,
+            brand,
+            guide_price as guidePrice,
+            produce_time as produceTime,
+            car_type as carType
+        from t_car
+        where id = 2
+    </select>
+
+    <select id="selectAll" resultType="jp.tokyo.leon.mybatis.crud.entity.Car">
+        select
+        id,
+        car_num as carNum,
+        brand,
+        guide_price as guidePrice,
+        produce_time as produceTime,
+        car_type as carType
+        from t_car
+    </select>
+
+</mapper>
