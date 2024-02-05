@@ -1,8 +1,6 @@
 package jp.tokyo.leon.mybatis.test;
 
-import jp.tokyo.leon.mybatis.entity.Car;
 import jp.tokyo.leon.mybatis.entity.Log;
-import jp.tokyo.leon.mybatis.mapper.CarMapper;
 import jp.tokyo.leon.mybatis.mapper.LogMapper;
 import jp.tokyo.leon.mybatis.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
