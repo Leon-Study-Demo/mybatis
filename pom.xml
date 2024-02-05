@@ -11,6 +11,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>mybatis-crud</module>
+        <module>mybatis-web</module>
+        <module>mybatis-configuration</module>
     </modules>
 
     <properties>
