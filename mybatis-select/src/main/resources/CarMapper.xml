@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.tokyo.leon.mybatis.select.mapper.CarMapper">
+
+    <resultMap id="carResultMap" type="jp.tokyo.leon.mybatis.select.entity.Car">
+        <id property="id" column="id"/>
+        <result property="carNum" column="car_num"/>
+        <result property="brand" column="brand"/>
+        <result property="guidePrice" column="guide_price"/>
+        <result property="produceTime" column="produce_time"/>
+        <result property="carType" column="car_type"/>
+    </resultMap>
+
+    <select id="selectById" resultType="Car">
+        select * from t_car where id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="Car">
+        select * from t_car
+    </select>
+
+    <select id="selectByBrandLike" resultType="Car">
+        select * from t_car where brand like "%"#{brand}"%"
+    </select>
+
+    <select id="selectByIdRetMap" resultType="map">
+        select * from t_car where id = #{id}
+    </select>
+
+
+    <select id="selectAllRetMap" resultType="map">
+        select * from t_car;
+    </select>
+
+    <select id="selectAllRetBigMap" resultType="map">
+        select * from t_car;
+    </select>
+
+    <select id="selectAllByResultMap" resultMap="carResultMap">
+        select * from t_car;
+    </select>
+
+    <select id="selectTotal" resultType="long">
+        select count(*) from t_car;
+    </select>
+
+
+</mapper>

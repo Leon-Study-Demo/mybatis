@@ -16,6 +16,7 @@
         <module>mybatis-javassist</module>
         <module>mybatis-antic</module>
         <module>mybatis-param</module>
+        <module>mybatis-select</module>
     </modules>
 
     <properties>
