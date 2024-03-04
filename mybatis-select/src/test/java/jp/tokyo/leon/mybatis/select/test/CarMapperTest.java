@@ -43,7 +43,7 @@ public class CarMapperTest {
     }
 
     @Test
-    public void testSelectByIdRetMap() {
+    public void testSelectByIdRetMap() throws InterruptedException {
         SqlSession sqlSession = SqlSessionUtil.openSession();
         CarMapper mapper = sqlSession.getMapper(CarMapper.class);
         Map<String, Object> map = mapper.selectByIdRetMap(3L);
@@ -57,7 +57,7 @@ public class CarMapperTest {
         CarMapper mapper = sqlSession.getMapper(CarMapper.class);
         List<Map<String, Object>> maps = mapper.selectAllRetMap();
         maps.forEach(System.out::println);
-        sqlSession.close();
+        SqlSessionUtil.close(sqlSession);
     }
 
     @Test
